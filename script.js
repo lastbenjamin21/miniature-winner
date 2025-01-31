@@ -110,3 +110,63 @@ function logout() {
     document.getElementById('register-form').style.display = 'block';
     document.getElementById('profile-info').style.display = 'none';
 }
+
+let userRating = 0; // Store the rating
+
+// Function to set rating based on user click
+function rateGame(rating) {
+    userRating = rating;
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+        if (index < rating) {
+            star.style.color = 'gold'; // Highlight the rated stars
+        } else {
+            star.style.color = 'gray'; // Unhighlight the rest
+        }
+    });
+}
+
+// Function to handle review submission
+function submitReview() {
+    const reviewText = document.getElementById('review-text').value;
+
+    if (userRating > 0 && reviewText.trim() !== '') {
+        console.log(`Rating: ${userRating} stars`);
+        console.log(`Review: ${reviewText}`);
+        
+        // Normally, here you'd send this data to your back-end to be stored in a database
+        alert('Thank you for your review!');
+    } else {
+        alert('Please provide a rating and a review!');
+    }
+}
+
+const firebaseConfig = {
+    apiKey: "your-api-key",
+    authDomain: "your-app-id.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-storage-bucket.appspot.com",
+    messagingSenderId: "your-sender-id",
+    appId: "your-app-id"
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+function loginWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider).then(result => {
+        console.log(result.user); // User data
+    }).catch(error => {
+        console.error(error);
+    });
+}
+
+function loginWithFacebook() {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    auth.signInWithPopup(provider).then(result => {
+        console.log(result.user); // User data
+    }).catch(error => {
+        console.error(error);
+    });
+}
