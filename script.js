@@ -12,7 +12,7 @@ function closeBookingForm() {
 function submitForm(event) {
     event.preventDefault();
 
-    const name = document.getElementById('name').value;
+    const name = document.getElementById('player-name').value;
     const email = document.getElementById('email').value;
     const payment = document.getElementById('payment').value;
 
@@ -206,3 +206,6 @@ document.getElementById('booking-form').addEventListener('submit', function(even
     //     .then(() => alert('Booking successful!'))
     //     .catch(error => console.error('Error booking spot:', error));
 });
+
+import { initializeApp } from 'firebase/app';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
