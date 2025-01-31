@@ -170,3 +170,39 @@ function loginWithFacebook() {
         console.error(error);
     });
 }
+
+document.getElementById('booking-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Capture form data
+    const playerName = document.getElementById('player-name').value;
+    const event = document.getElementById('event').value;
+
+    // Capture selected services
+    const selectedServices = [];
+    if (document.getElementById('referee').checked) {
+        selectedServices.push('Referee');
+    }
+    if (document.getElementById('cameraman').checked) {
+        selectedServices.push('Cameraman');
+    }
+    if (document.getElementById('commentator').checked) {
+        selectedServices.push('Commentator');
+    }
+
+    // Display selected services (for now, for testing purposes)
+    console.log('Selected Services:', selectedServices);
+
+    // Send booking data to the server or Firebase (your back-end solution)
+    // For example, if you're using Firebase Firestore:
+    const bookingData = {
+        playerName: playerName,
+        event: event,
+        services: selectedServices,
+    };
+
+    // Add to Firebase Firestore or another database
+    // firebase.firestore().collection("bookings").add(bookingData)
+    //     .then(() => alert('Booking successful!'))
+    //     .catch(error => console.error('Error booking spot:', error));
+});
