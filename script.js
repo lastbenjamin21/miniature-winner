@@ -1,11 +1,11 @@
 // Function to open the booking form
 function openBookingForm() {
-    document.getElementById('booking-form').style.display = 'block';
+    document.getElementById('booking-form-section').style.display = 'block';
 }
 
 // Function to close the booking form
 function closeBookingForm() {
-    document.getElementById('booking-form').style.display = 'none';
+    document.getElementById('booking-form-section').style.display = 'none';
 }
 
 // Handle the form submission
@@ -26,7 +26,7 @@ function submitForm(event) {
     alert(`Thank you for booking, ${name}! We’ve sent a confirmation email to ${email}.`);
 
     // Reset the form and close it
-    document.getElementById('form').reset();
+    document.getElementById('booking-form').reset();
     closeBookingForm();
 }
 
