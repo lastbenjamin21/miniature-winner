@@ -25,12 +25,24 @@
 
     <section class="booking-form" id="booking-form">
         <h2>Book Your Spot</h2>
-        <form id="form" onsubmit="submitForm(event)">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" required>
+        <form id="booking-form" onsubmit="submitForm(event)">
+            <label for="player-name">Your Name:</label>
+            <input type="text" id="player-name" name="player-name" required />
 
             <label for="email">Your Email:</label>
             <input type="email" id="email" required>
+
+            <label for="referee">
+        <input type="checkbox" id="referee" name="service" value="referee"> Referee
+    </label><br>
+
+    <label for="cameraman">
+        <input type="checkbox" id="cameraman" name="service" value="cameraman"> Cameraman
+    </label><br>
+
+    <label for="commentator">
+        <input type="checkbox" id="commentator" name="service" value="commentator"> Commentator
+    </label><br>
 
             <label for="payment">Payment (RM):</label>
             <input type="number" id="payment" required>
