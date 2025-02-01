@@ -13,7 +13,7 @@ function submitForm(event) {
     event.preventDefault();
 
     const name = document.getElementById('player-name').value;
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('booking-email').value;
     const payment = document.getElementById('payment').value;
 
     // Simple validation (optional)
@@ -89,7 +89,7 @@ function registerUser(event) {
     event.preventDefault();
     
     const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('register-email').value;
     
     // Save user data in local storage (for demo purposes)
     localStorage.setItem('user', JSON.stringify({ username, email }));
