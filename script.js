@@ -171,12 +171,6 @@ function loginWithFacebook() {
     });
 }
 
-    event.preventDefault();
-
-    // Capture form data
-    const playerName = document.getElementById('player-name').value;
-    const event = document.getElementById('event').value;
-
     // Capture selected services
     const selectedServices = [];
     if (document.getElementById('referee').checked) {
